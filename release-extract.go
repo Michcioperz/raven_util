@@ -8,8 +8,7 @@ import (
 	"io/ioutil"
 )
 
-func ExtractCurrentRelease(repo_root string) string {
-	e := log.New(os.Stderr, "researching: ", log.LstdFlags)
+func ExtractCurrentRelease(repo_root string, verbose_logger log.Logger) string {
 	currentPath := repo_root
 	var reference string = "ref: .git/HEAD"
 	var err error = nil
@@ -17,7 +16,9 @@ func ExtractCurrentRelease(repo_root string) string {
 		newSubpath := strings.TrimPrefix(reference, "ref:")
 		oldPath := path.Dir(currentPath)
 		currentPath := path.Join(oldPath, newSubpath)
-		e.Print(currentPath)
+		if verbose_logger != nil {
+			verbose_logger.Print(currentPath)
+		}
 		var refbytes []byte
 		refbytes, err = ioutil.ReadFile(currentPath)
 		if err != nil {
