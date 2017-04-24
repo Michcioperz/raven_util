@@ -14,7 +14,7 @@ func ExtractCurrentRelease(repo_root string, verbose_logger *log.Logger) string 
 	for strings.HasPrefix(reference, "ref:") {
 		newSubpath := strings.TrimSpace(strings.TrimPrefix(reference, "ref:"))
 		oldPath := path.Dir(currentPath)
-		currentPath := path.Join(oldPath, newSubpath)
+		currentPath = path.Join(oldPath, newSubpath)
 		if verbose_logger != nil {
 			verbose_logger.Print(currentPath)
 		}
