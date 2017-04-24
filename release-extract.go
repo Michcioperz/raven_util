@@ -12,7 +12,7 @@ func ExtractCurrentRelease(repo_root string, verbose_logger *log.Logger) string 
 	var reference string = "ref: .git/HEAD"
 	var err error = nil
 	for strings.HasPrefix(reference, "ref:") {
-		newSubpath := strings.TrimPrefix(reference, "ref:")
+		newSubpath := strings.TrimSpace(strings.TrimPrefix(reference, "ref:"))
 		oldPath := path.Dir(currentPath)
 		currentPath := path.Join(oldPath, newSubpath)
 		if verbose_logger != nil {
