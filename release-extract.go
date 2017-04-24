@@ -1,14 +1,13 @@
 package raven_util
 
 import (
-	"os"
 	"log"
 	"strings"
 	"path"
 	"io/ioutil"
 )
 
-func ExtractCurrentRelease(repo_root string, verbose_logger log.Logger) string {
+func ExtractCurrentRelease(repo_root string, verbose_logger *log.Logger) string {
 	currentPath := repo_root
 	var reference string = "ref: .git/HEAD"
 	var err error = nil
