@@ -8,7 +8,7 @@ import (
 )
 
 func ExtractCurrentRelease(repo_root string, verbose_logger *log.Logger) string {
-	currentPath := path.Join(repo_root, ".")
+	currentPath := path.Join(repo_root, "legit-fake-path")
 	var reference string = "ref: .git/HEAD"
 	var err error = nil
 	for strings.HasPrefix(reference, "ref:") {
