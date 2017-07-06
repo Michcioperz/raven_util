@@ -1,10 +1,10 @@
 package raven_util
 
 import (
-	"log"
-	"strings"
-	"path"
 	"io/ioutil"
+	"log"
+	"path"
+	"strings"
 )
 
 func ExtractCurrentRelease(repo_root string, verbose_logger *log.Logger) string {
